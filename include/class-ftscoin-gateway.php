@@ -229,19 +229,14 @@ class FTSCoin_Gateway extends WC_Payment_Gateway
         curl_close($curl);
         $price = json_decode($resp, true);
 
-        if($price_fts['success'] === true && isset($price_fts['bid'])) {
+        if(isset($price_fts['buy_price'])) {
             if(isset($price['USD'])) {
                 $table_name = $wpdb->prefix.'ftscoin_gateway_live_rates';
 
                 // shift decimal eight places for precise int storage
-                $rate_usd = intval($price['USD'] * $price_fts['bid'] * 1e8);
+                $rate_usd = intval($price['USD'] * $price_fts['buy_price'] * 1e8);
                 $query = $wpdb->prepare("INSERT INTO $table_name (currency, rate, updated) VALUES (%s, %d, NOW()) ON DUPLICATE KEY UPDATE rate=%d, updated=NOW()", array('USD', $rate_usd, $rate_usd));
                 $wpdb->query($query);
-
-                $rate_ltc = round($price_fts['bid'] * 1e8);
-                $query = $wpdb->prepare("INSERT INTO $table_name (currency, rate, updated) VALUES (%s, %d, NOW()) ON DUPLICATE KEY UPDATE rate=%d, updated=NOW()", array('LTC', $rate_ltc, $rate_ltc));
-                $wpdb->query($query);
-
             }
         }
 
