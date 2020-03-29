@@ -217,6 +217,10 @@ class FTSCoin_Gateway extends WC_Payment_Gateway
         ));
         $resp = curl_exec($curl);
         curl_close($curl);
+
+        // Remove garbage bytes from API response
+        $resp = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $resp);
+
         $price_fts = json_decode($resp, true);
 
         $api_link = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&extraParams=fts_woocommerce';
