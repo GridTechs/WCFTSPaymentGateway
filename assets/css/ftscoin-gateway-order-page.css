@@ -1,0 +1,78 @@
+#ftscoin_payment_messages > span {
+    display:none;
+}
+.ftscoin_details_row {
+    display: flex !important;
+    align-items: center;
+    margin:0 -8px;
+}
+.ftscoin_details_row > * {
+    padding:0 8px;
+}
+.ftscoin_details_left {
+}
+.ftscoin_details_main {
+    flex-grow: 1;
+    word-break:break-all;
+}
+.ftscoin_details_right.button-row {
+    display:flex;
+    margin-top: 5px;
+    align-self: self-start;
+}
+.ftscoin_details_right.button-row button {
+    width: 32px;
+    height: 32px;
+    padding: 6px 2px;
+    margin: 0 4px;
+    line-height:28px;
+    text-align:center;
+}
+#ftscoin_integrated_address {
+    line-height: 16px;
+}
+#ftscoin_qr_code_container {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:9999;
+    background:rgba(0,0,0,0.5);
+}
+#ftscoin_qr_code {
+    position: absolute;
+    width: 256px;
+    height: 256px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: content-box;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+}
+#ftscoin_toast {
+    position: fixed;
+    z-index: 999;
+    top: 32px;
+    right: 12px;
+}
+#ftscoin_toast > div {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 20px;
+    width: 300px;
+    border-radius: 3px;
+    color: white;
+    right: -400px;
+}
+#ftscoin_toast > div.success {
+    background: rgba(68, 190, 117, 0.8);
+}
+#ftscoin_toast > div.error {
+    background: rgba(195, 60, 60, 0.8);
+}
