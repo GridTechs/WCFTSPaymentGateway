@@ -62,8 +62,3 @@ This will display the price of FTSCoin in the selected currency. If no currency 
 [ftscoin-price currency="BTC"]
 [ftscoin-price currency="USD"]
 ```
-Will display:
-```
-1 FTS = 0.00000149 LTC
-1 FTS = 0.00003815 USD
-```
