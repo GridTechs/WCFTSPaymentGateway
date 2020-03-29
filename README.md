@@ -62,3 +62,4 @@ This will display the price of FTSCoin in the selected currency. If no currency 
 [ftscoin-price currency="BTC"]
 [ftscoin-price currency="USD"]
 ```
+Thank you to Blockinator of FTS Coin and Mosu Forge of https://ryo-currency.com/ for their help with this fork!
